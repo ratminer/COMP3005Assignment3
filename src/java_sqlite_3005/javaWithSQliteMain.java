@@ -55,7 +55,7 @@ public class javaWithSQliteMain {
 			//Connection conn = DriverManager.getConnection("jdbc:sqlite:mytest.db");
 			
 			//HARD CODED DATABASE NAME:
-			Connection database = DriverManager.getConnection("jdbc:sqlite:db_3005fakebooks");
+			Connection database = DriverManager.getConnection("jdbc:sqlite:db_tennis");
 		       //create a statement object which will be used to relay a
 		       //sql query to the database
 		     Statement stat = database.createStatement();
@@ -71,7 +71,7 @@ public class javaWithSQliteMain {
 		   
                 //Query database for initial contents for GUI
 
-	            String sqlQueryString = "select * from bookcodes order by code asc;";
+	            String sqlQueryString = "select * from tennisPlayer order by level asc;";
 	            System.out.println("");
 	            System.out.println(sqlQueryString);
 
@@ -81,14 +81,14 @@ public class javaWithSQliteMain {
 		        while (rs.next()) {
 		            //System.out.print("code: " + rs.getString("code"));
 		            //System.out.println(" title = " + rs.getString("title"));
-		            FakeBook fakebook = new FakeBook(rs.getString("code"), rs.getString("title"));
+		            FakeBook fakebook = new FakeBook(rs.getString("location"), rs.getString("name"));
 		            books.add(fakebook);
 		        }
 		        rs.close(); //close the query result table
 		        
 
 
-	            sqlQueryString = "select * from songs;";
+	            sqlQueryString = "select * from tennisPlayer;";
 		        rs = stat.executeQuery(sqlQueryString);
 	            System.out.println("");
 	            System.out.println(sqlQueryString);
@@ -105,9 +105,9 @@ public class javaWithSQliteMain {
 		            
 		            FakeBookSong song = new FakeBookSong(
 		            		rs.getInt("id"),
-		            		rs.getString("bookcode"),
-		            		rs.getInt("page"),
-		            		rs.getString("title")
+		            		rs.getInt("level"),
+		            		rs.getString("location"),
+		            		rs.getString("name")
 		            		);
 		            songSearchResults.add(song);
 	            count++;

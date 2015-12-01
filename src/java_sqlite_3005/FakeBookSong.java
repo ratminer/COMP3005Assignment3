@@ -6,25 +6,25 @@ public class FakeBookSong {
 	 */
 	
 	private int id; //database table primary key id
-	private String bookcode; //string code for fake book
-	private int page; //page number of song in bookcode fakebook
-	private String title; //title of song
+	private int level; //string code for fake book
+	private String location; //page number of song in bookcode fakebook
+	private String name; //title of song
 	
-	public FakeBookSong(int databaseKey, String aBookCode, int aPageNumber, String aSongTitle){
+	public FakeBookSong(int databaseKey, int level, String location, String name){
 		id = databaseKey;
-		bookcode = aBookCode;
-		page = aPageNumber;
-		title = aSongTitle;
+		this.level = level;
+		this.location = location;
+		this.name = name;
 	}
 	
 	public int getID() {return id;}
-	public String getBookCode() {return bookcode;}
-	public int getPage() {return page;}
-	public String getTitle() {return title;}
+	public int getLevel() {return level;}
+	public String getLocation() {return location;}
+	public String getName() {return name;}
 	
-	public void setTitle(String aSongTitle) {title = aSongTitle;}
-	public void setBookCode(String aBookCode) {bookcode = aBookCode;}
-	public void setPage(int aPage) {page = aPage;}
+	public void setTitle(String aName) {name = aName;}
+	public void setLevel(int aLevel) {level = aLevel;}
+	public void setLocation(String aLocation) {location = aLocation;}
 	
 	public String toString(){
 		
@@ -34,9 +34,9 @@ public class FakeBookSong {
 		
 		String pageIndent = "";
 		int max_page_digits = 5;
-		for(int i=0; i< max_page_digits-(""+page).length(); i++ ) pageIndent = pageIndent + " ";
+		for(int i=0; i< max_page_digits-(""+location).length(); i++ ) pageIndent = pageIndent + " ";
 		
-		return "" + id + keyIndent + bookcode + "   " + page + pageIndent + title;
+		return "" + id + keyIndent + level + "   " + location + pageIndent + name;
 	}
 
 }

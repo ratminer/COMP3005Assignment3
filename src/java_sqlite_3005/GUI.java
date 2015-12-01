@@ -197,9 +197,9 @@ public class GUI extends JFrame implements DialogClient{
 	        while (rs.next() && count < GUI_DISPLAY_LIMIT){
 	        	FakeBookSong song = new FakeBookSong(
 	        			rs.getInt("id"),
-	        			rs.getString("bookcode"),
-	        			rs.getInt("page"),
-	        			rs.getString("title")
+	        			rs.getInt("level"),
+	        			rs.getString("location"),
+	        			rs.getString("name")
 	        			);
 	        	
 	            songSearchResults.add(song);
@@ -274,9 +274,9 @@ public class GUI extends JFrame implements DialogClient{
 			
 			try {
 				PreparedStatement prep = databaseConnection.prepareStatement(updateString);
-				prep.setString(1, songBeingEdited.getTitle());
-				prep.setString(2, songBeingEdited.getBookCode());
-				prep.setInt(3, songBeingEdited.getPage());
+				prep.setString(1, songBeingEdited.getName());
+				prep.setInt(2, songBeingEdited.getLevel());
+				prep.setString(3, songBeingEdited.getLocation());
 				prep.setInt(4, songBeingEdited.getID());
 				
 				prep.executeUpdate();
@@ -309,9 +309,9 @@ public class GUI extends JFrame implements DialogClient{
 				try {
 					ResultSet rs = stat.executeQuery(sqlQueryString);
 					while(rs.next()){
-						if(rs.getString("title") == songBeingEdited.getTitle() 
-								&& rs.getString("bookcode") == songBeingEdited.getBookCode() 
-								&& rs.getInt("page") == songBeingEdited.getPage()){
+						if(rs.getString("title") == songBeingEdited.getName() 
+								&& rs.getInt("level") == songBeingEdited.getLevel() 
+								&& rs.getString("location") == songBeingEdited.getLocation()){
 							PreparedStatement prep = databaseConnection.prepareStatement("DELETE FROM Songs WHERE ID = ?");
 							prep.setInt(1, rs.getInt("ID"));
 							prep.executeUpdate();

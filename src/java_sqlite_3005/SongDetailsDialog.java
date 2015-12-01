@@ -119,7 +119,7 @@ public class SongDetailsDialog extends JDialog {
         getContentPane().add(aLabel);
    		
    		// Add the name field
-		titleField = new JTextField(aSong.getTitle());
+		titleField = new JTextField(aSong.getName());
 		titleField.setFont(UIFont);
         lc.gridx = 1; lc.gridy = 0;
         lc.gridwidth = 3; lc.gridheight = 1;
@@ -129,7 +129,7 @@ public class SongDetailsDialog extends JDialog {
    		getContentPane().add(titleField);
 
 		// Add the address field
-		bookcodeField = new JTextField(aSong.getBookCode());
+		bookcodeField = new JTextField(aSong.getLevel());
 		bookcodeField.setFont(UIFont);
 
         lc.gridx = 1; lc.gridy = 1;
@@ -141,7 +141,7 @@ public class SongDetailsDialog extends JDialog {
         
  
  		// Add the year field
-		pageField = new JTextField(""+ aSong.getPage());
+		pageField = new JTextField(""+ aSong.getLocation());
 		pageField.setFont(UIFont);
         lc.gridx = 1; lc.gridy = 2;
         lc.gridwidth = 3; lc.gridheight = 1;
