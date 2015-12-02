@@ -55,7 +55,7 @@ public class javaWithSQliteMain {
 			//Connection conn = DriverManager.getConnection("jdbc:sqlite:mytest.db");
 			
 			//HARD CODED DATABASE NAME:
-			Connection database = DriverManager.getConnection("jdbc:sqlite:db_tennis");
+			Connection database = DriverManager.getConnection("jdbc:sqlite:db_LOLBuilds");
 		       //create a statement object which will be used to relay a
 		       //sql query to the database
 		     Statement stat = database.createStatement();

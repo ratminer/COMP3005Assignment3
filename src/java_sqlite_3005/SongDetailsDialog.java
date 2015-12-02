@@ -196,8 +196,8 @@ public class SongDetailsDialog extends JDialog {
 	private void updateButtonClicked(){
 		
 		theSong.setTitle(titleField.getText());
-		theSong.setBookCode(bookcodeField.getText());
-		theSong.setPage(Integer.parseInt(pageField.getText()));
+		//theSong.setBookCode(bookcodeField.getText());
+		//theSong.setPage(Integer.parseInt(pageField.getText()));
 		
 		//Inform the dialog client that the dialog finished
 		
@@ -213,8 +213,8 @@ public class SongDetailsDialog extends JDialog {
 	private void deleteButtonClicked(){
 		
 		theSong.setTitle(titleField.getText());
-		theSong.setBookCode(bookcodeField.getText());
-		theSong.setPage(Integer.parseInt(pageField.getText()));
+		//theSong.setBookCode(bookcodeField.getText());
+		//theSong.setPage(Integer.parseInt(pageField.getText()));
 		
 		//Inform the dialog client that the dialog finished
 		
